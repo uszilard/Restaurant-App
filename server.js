@@ -38,17 +38,46 @@ app.get("/reserve", function (req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
+
+
+//
+app.get("/api/tables", function (req, res) {
+    res.json(tables);
+});
+
+app.get("/api/waitlist", function (req, res) {
+    res.json(waitlist);
+});
+
+app.post("/api/tables", function (req, res) {
+    var newReservation = req.body
+
+    newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newReservation);
+
+    tables.push(newReservation);
+
+    res.json(newReservation);
+
+});
+
+app.post("/api/waitlist", function (req, res) {
+    var newWaitList = req.body
+
+    newWaitList.routeName = newWaitList.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newWaitList);
+
+    tables.push(newWaitList);
+
+    res.json(newWaitList);
+
+});
+
+
+//
 app.listen(PORT, function () {
 
     console.log("Server listening on: http://localhost:" + PORT);
-})
-
-
-
-app.get("/tables", function (req, res) {
-    res.json(tables;
-});
-
-app.get("/waitlist", function (req, res) {
-    res.json(waitlist);
 });
