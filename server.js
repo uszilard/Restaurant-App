@@ -73,3 +73,12 @@ app.listen(PORT, function () {
 
     console.log("Server listening on: http://localhost:" + PORT);
 });
+
+////////////////////////////////////
+app.post("/api/clear", function (req, res) {
+
+    table.length = 0;
+    waitlist.length = 0;
+
+    res.json({ ok: true });
+});
