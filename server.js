@@ -26,7 +26,7 @@ var waitlist = [
 ];
 
 app.get("/", function (req, res) {
-    console.log("hey i suck")
+    console.log("hey i work")
     res.sendFile(path.join(__dirname, "home.html"));
 });
 
@@ -42,3 +42,13 @@ app.listen(PORT, function () {
 
     console.log("Server listening on: http://localhost:" + PORT);
 })
+
+
+
+app.get("/tables", function (req, res) {
+    res.json(tables;
+});
+
+app.get("/waitlist", function (req, res) {
+    res.json(waitlist);
+});
