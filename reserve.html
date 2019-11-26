@@ -77,7 +77,29 @@
         </footer>
 
     </div>
+    <script>
 
+        $(".submit").on("click", function (event) {
+            event.preventDefault()
+
+            var tableObject = {
+                customerName: $("#reserve-name"),
+                phoneNumber: $("#reserve-phone"),
+                customerEmail: $("#reserve-email"),
+                customerID: $("#reserve-unique-id")
+            }
+            $.ajax.post("/api/tables", tableObject, function (data) {
+                console.log("sucess")
+            })
+
+
+        });
+
+
+
+
+
+    </script>
 
 </body>
 
