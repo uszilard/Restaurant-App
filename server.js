@@ -52,9 +52,7 @@ app.get("/api/waitlist", function (req, res) {
 app.post("/api/tables", function (req, res) {
     var newReservation = req.body
 
-    newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
-    console.log(newReservation);
 
     tables.push(newReservation);
 
@@ -63,11 +61,8 @@ app.post("/api/tables", function (req, res) {
 });
 
 app.post("/api/waitlist", function (req, res) {
+    console.log("request", req)
     var newWaitList = req.body
-
-    newWaitList.routeName = newWaitList.name.replace(/\s+/g, "").toLowerCase();
-
-    console.log(newWaitList);
 
     tables.push(newWaitList);
 
