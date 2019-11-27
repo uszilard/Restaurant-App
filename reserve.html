@@ -83,15 +83,14 @@
             event.preventDefault()
 
             var tableObject = {
-                customerName: $("#reserve-name"),
-                phoneNumber: $("#reserve-phone"),
-                customerEmail: $("#reserve-email"),
-                customerID: $("#reserve-unique-id")
+                customerName: $("#reserve-name").val().trim(),
+                phoneNumber: $("#reserve-phone").val().trim(),
+                customerEmail: $("#reserve-email").val().trim(),
+                customerID: $("#reserve-unique-id").val().trim(),
             }
             $.ajax.post("/api/tables", tableObject, function (data) {
                 console.log("sucess")
             })
-
 
         });
 
