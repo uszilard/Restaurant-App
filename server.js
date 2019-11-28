@@ -10,23 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 ////////////////////////////////////
-var tables = [
-    {
-        customerName: "Pablo",
-        phoneNumber: "0123456789",
-        customerEmail: "pablo@email.com",
-        customerID: "1234"
-    }
-];
+var tables = [];
 
-var waitlist = [
-    {
-        customerName: "Pablo",
-        phoneNumber: "0123456789",
-        customerEmail: "pablo@email.com",
-        customerID: "1234"
-    }
-];
+var waitlist = [];
 
 ////////////////////////////////////
 app.get("/", function (req, res) {
