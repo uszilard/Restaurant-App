@@ -111,13 +111,19 @@
     <script>
 
         async function fetchTables() {
+            console.log("catching tables")
 
-            const response = fetch("/api/tables")
-            const myJson = await response.json();
+            const tableObject = await fetch("/api/tables")
+            console.log(tableObject)
+
+            const myJson = await tableObject.json();
             console.log(JSON.stringify(myJson))
         };
 
-        $(document).ready(fetchTables);
+        fetchTables()
+
+
+
     </script>
 
 
