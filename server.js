@@ -44,6 +44,7 @@ app.get("/reserve", function (req, res) {
 
 ////////////////////////////////////
 app.get("/api/tables", function (req, res) {
+    console.log("9999", tables)
     res.json(tables);
 });
 

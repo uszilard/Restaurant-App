@@ -110,14 +110,14 @@
 
     <script>
 
-        $.ajax({ url: "/api/tables", method: "GET" })
-            .then(function (tableObject) {
-                console.log(tableObject);
+        async function fetchTables() {
 
-            }
+            const response = fetch("/api/tables")
+            const myJson = await response.json();
+            console.log(JSON.stringify(myJson))
+        };
 
-            );
-
+        $(document).ready(fetchTables);
     </script>
 
 
