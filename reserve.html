@@ -88,10 +88,14 @@
                 customerEmail: $("#reserve-email").val().trim(),
                 customerID: $("#reserve-unique-id").val().trim(),
             }
-            $.ajax.post("/api/tables", tableObject, function (data) {
+            $.post("/api/tables", tableObject, function (data) {
                 console.log("sucess")
-            })
+            });
 
+            $("#reserve-name").val("")
+            $("#reserve-phone").val("")
+            $("#reserve-email").val("")
+            $("#reserve-unique-id").val("")
         });
 
     </script>

@@ -64,6 +64,8 @@ app.post("/api/tables", function (req, res) {
         tables.push(newReservation)
     }
 
+    console.log("tabels", tables)
+
     res.json(newReservation);
 
 });
