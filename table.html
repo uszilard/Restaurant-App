@@ -39,48 +39,9 @@
                     </div>
                     <div class="card-body">
                         <ul id="tableList" class="list-group">
-                            <li class="list-group-item mt-4">
-                                <h2>Table #1</h2>
-                                <hr>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                            </li>
-                            <li class="list-group-item mt-4">
-                                <h2>Table #2</h2>
-                                <hr>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                            </li>
-                            <li class="list-group-item mt-4">
-                                <h2>Table #3</h2>
-                                <hr>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                            </li>
-                            <li class="list-group-item mt-4">
-                                <h2>Table #4</h2>
-                                <hr>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                            </li>
-                            <li class="list-group-item mt-4">
-                                <h2>Table #5</h2>
-                                <hr>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                                <h2></h2>
-                            </li>
                         </ul>
                     </div>
+
                 </div>
 
                 <!-- Waiting List Card -->
@@ -103,6 +64,7 @@
                         href="/api/waitlist">API
                         Wait List</a>
                 </p>
+
             </div>
         </footer>
 
@@ -118,9 +80,41 @@
 
             const myJson = await tableObject.json();
             console.log(JSON.stringify(myJson))
+
+            const ol = document.querySelector("#tableList")
+            myJson.forEach(({ customerName, phoneNumber, customerEmail, customerID }, index) => {
+                ol.innerHTML += (`<li class="list-group-item mt-4"><h1>Tabel ${index + 1}</h1><h2>${customerName}</h2><h2>${phoneNumber}</h2><h2>${customerEmail}</h2><h2>${customerID}</h2></li>`)
+
+            })
         };
 
         fetchTables()
+
+        async function fetchWaitList() {
+            console.log("catching waitList")
+
+            const tableObject = await fetch("/api/waitlist")
+            console.log(tableObject)
+
+            const myJson = await tableObject.json();
+            console.log(JSON.stringify(myJson))
+
+            const ol = document.querySelector("#waitList")
+            myJson.forEach(({ customerName, phoneNumber, customerEmail, customerID }, index) => {
+                ol.innerHTML += (`<li class="list-group-item mt-4"><h1>Tabel ${index + 1}</h1><h2>${customerName}</h2><h2>${phoneNumber}</h2><h2>${customerEmail}</h2><h2>${customerID}</h2></li>`)
+
+            })
+        };
+
+        fetchWaitList()
+
+        $("#clear").on("click", function () {
+            console.log("I am emptyilng")
+
+            document.querySelector("#tableList").innerHTML = [];
+            document.querySelector("#waitList").innerHTML = "";
+        });
+
 
     </script>
 
